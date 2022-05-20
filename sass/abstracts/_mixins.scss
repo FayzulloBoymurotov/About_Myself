@@ -1,0 +1,67 @@
+@mixin baElements ($w, $h) {
+  content: "";
+  display: inline-block;
+  width: $w;
+  height: $h;
+}
+
+@mixin baImages ($w, $h, $url) {
+  @include baElements($w, $h);
+
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1920]   our normal styles apply
+1920px + :      Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+
+// MEDIA QUERY MANAGER
+
+@mixin respond ($breakpoint) {
+  @if ($breakpoint=phones) {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint=tablets) {
+    @media only screen and (max-width: 900px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint=laptops) {
+    @media only screen and (max-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint=big-screens) {
+    @media only screen and (min-width: 1920px) {
+      @content;
+    }
+  }
+
+}
+
+%flexCenter {
+  display: flex;
+  align-items: center;
+}

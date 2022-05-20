@@ -1,0 +1,28 @@
+.about {
+
+  &__link:active {
+    transition: color .4 ease-in-out;
+    color: red;
+    background-color: #00a8ff;
+  }
+
+  &__span:hover {
+    color: #7d5fff;
+    transition: color .3 ease-in-out;
+  }
+
+}
+
+.information {
+
+  &__heading:hover {
+    color: #82ccdd;
+    transition: color .4 ease-in-out;
+  }
+
+  &__heading2:hover {
+    color: #82ccdd;
+    transition: color .4 ease-in-out;
+  }
+
+}
